@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+
+
+
 
 @Component({
   selector: 'app-root',
@@ -8,3 +11,4 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'day5-assess';
 }
+

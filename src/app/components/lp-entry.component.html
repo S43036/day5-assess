@@ -1,0 +1,59 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>New Task</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+
+      <form #lpItem="ngForm">
+          <mat-form-field>
+            <input type="text" name="albumName" placeholder="Album Name"
+              ngModel matInput required minlength="2" maxlength="20">
+          </mat-form-field>
+        <br>
+          
+        <mat-form-field>
+            <input type="text" name="artistName" placeholder="Artist"
+              ngModel matInput required minlength="2" maxlength="20">
+          </mat-form-field>
+      <br>
+      
+        
+            <mat-slider name="rating"
+            class="example-margin"
+            [disabled]="disabled"
+            [invert]="invert"
+            [max]="max"
+            [min]="min"
+            [step]="step"
+            [thumbLabel]="thumbLabel"
+            [tickInterval]="tickInterval"
+            [(ngModel)]="value"
+            [vertical]="vertical">
+        </mat-slider>
+      
+        <br>
+          
+        <mat-form-field>
+            <input type="text" name="urlName" placeholder="Album Cover Image"
+              ngModel matInput>
+          </mat-form-field>
+
+              <div fxLayout="row" fxLayoutAlign="space-between" fxLayoutGap="8px">
+                  <button type="reset" mat-button mat-raised-button color="primary">
+                    <mat-icon>clear</mat-icon> Clear 
+                  </button>
+                  <button type="submit" mat-button mat-raised-button 
+                  color="warn"> 
+                    <mat-icon>home</mat-icon> Add 
+                  </button>
+                </div>
+
+      </form>
+
+<br>
+
+
+
+
+</mat-card-content>
