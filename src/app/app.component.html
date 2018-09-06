@@ -1,35 +1,11 @@
-<mat-toolbar color="primary">
-  <img src="/assets/lp_logo.jpg" class="logo">
-  <span> My LP Collection </span>
+<mat-toolbar color="primary" fxLayout="row column" fxLayoutAlign="space-between center">
+  <span fxLayout="row column" fxLayoutAlign="start center" fxLayoutGap="8px">
+      <mat-icon> menu </mat-icon>
+      <span> My LP Collection </span>
+  </span>
+  <img src="/assets/lp_logo.jpg" class="logo"> 
 </mat-toolbar>
 
-<app-lp-entry></app-lp-entry>
+<app-lp-entry (newLP)="addToList($event)"></app-lp-entry>
 
-<mat-card>
-
-<mat-card-content>
- <div> 
-   <img class="logo" src="/assets/abbeyroad.jpg">
-  <span fxLayout="row">album, artist,</span> 
-
- </div>
- 
-  
-</mat-card-content>
-
-</mat-card> <br>
-<mat-card>
-
-  <mat-card-content>
-      <img class="logo" src="/assets/rumours.jpg">image, album, artist, rating
-  </mat-card-content>
-  
-  </mat-card> <br>
-  <mat-card>
-
-    <mat-card-content>
-        <img class="logo" src="/assets/brothers.jpg">image, album, artist, rating
-    </mat-card-content>
-    
-    </mat-card>
-      
+<app-lplist [lpList]="lpList"></app-lplist>

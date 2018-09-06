@@ -1,24 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { LpEntryComponent } from './components/lp-entry.component';
-import { LplistComponent } from './components/lplist.component';
+import { LpListComponent } from './components/lplist.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
     AppComponent,
     LpEntryComponent,
-    LplistComponent
+    LpListComponent,
   ],
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
+    BrowserModule, BrowserAnimationsModule,
+    FormsModule,
     MaterialModule,
-    FormsModule
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

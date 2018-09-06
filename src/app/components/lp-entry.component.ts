@@ -1,13 +1,7 @@
-import { Component, OnInit, Input, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
-
-export interface LineItem {
-  albumName: string;
-  artistName: string;
-  urlName: string;
-  rating: number;
-  quantity: number;
-}
+import { LP } from '../model';
 
 
 @Component({
@@ -15,15 +9,23 @@ export interface LineItem {
   templateUrl: './lp-entry.component.html',
   styleUrls: ['./lp-entry.component.css']
 })
+
 export class LpEntryComponent implements OnInit {
 
+  @ViewChild('lpForm') lpForm: NgForm;
 
-
-  
+  @Output()
+  newLP = new EventEmitter<LP>();
   
   constructor() { }
 
   ngOnInit() {}
 
+  insertLP() {
+    const lp: LP = this.lpForm.value;
+    lp.albumCover = lp.albumCover || '/assets/not_available.png';
+    this.newLP.next(lp);
+    this.lpForm.resetForm();
+  }
   
   }
